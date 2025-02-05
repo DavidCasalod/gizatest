@@ -1,6 +1,6 @@
 # Portfolio Management System
 
-Este proyecto implementa un sistema para trackear posiciones DeFi de múltiples wallets en distintas cadenas (Chain). Está inspirado en herramientas como DeBank o Zapper, pero se centra en la lógica principal de:
+Este proyecto implementa un sistema para trackear posiciones DeFi de múltiples wallets en distintas blockchains. Sus funcionalidades son: 
 
 - **Almacenar transacciones** (deposit, withdraw, etc.).
 - **Calcular Posiciones** (cantidad total, costo base, P&L).
@@ -16,20 +16,20 @@ Este proyecto implementa un sistema para trackear posiciones DeFi de múltiples 
 - Incluyen: `timestamp`, `chain`, `protocol`, `action`, `asset`, `amount`, `usd_value`.
 
 ### Posiciones
-- Cada wallet mantiene un diccionario de `Position` (uno por activo).
-- Al depositar, se incrementa la cantidad y el costo base.
-- Al retirar, se reduce la cantidad de forma proporcional.
+- Cada wallet mantiene un diccionario de `Position` (por cada activo).
+- Al depositar, se aumenta la cantidad y el coste base.
+- Al retirar, reduce la cantidad.
 
 ### Cálculos de Valor
-- `get_total_value(current_prices)` retorna la suma del valor de todas las wallets.
-- `get_portfolio_analytics(current_prices)` genera un desglose por chain, protocol y asset.
+- `get_total_value(current_prices)` devuelve la suma del valor de todas las wallets.
+- `get_portfolio_analytics(current_prices)` desglosa por chain, protocol y asset.
 
 ## Estructura
 
 - **Transaction**: Representa una sola transacción DeFi.
-- **Position**: Gestiona la cantidad y costo base de un activo.
-- **Wallet**: Agrupa transacciones y posiciones para una sola dirección (`address`).
-- **Portfolio**: Maneja múltiples wallets y expone métodos de cálculo global.
+- **Position**: Gestiona la cantidad y coste de un activo.
+- **Wallet**: Agrupa transacciones y posiciones para una sola address.
+- **Portfolio**: Maneja múltiples wallets y tiene métodos de cálculo global.
 
 ## Ejemplo de Uso
 
